@@ -21,7 +21,7 @@ export default class LoginScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={logo} />
+        <Image source={logo} resizeMode="contain" style={styles.logo} />
 
         <TextInput
           style={styles.usernameField}
@@ -59,6 +59,10 @@ const styles = StyleSheet.create({
     backgroundColor: colorPumpkin,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  logo: {
+    height: 300,
+    width: 200
   },
   usernameField: {
     ...textInput,

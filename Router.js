@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { LoginScreen } from './screens';
+import { LoginScreen, BrowserScreen } from './screens';
 
 class Router extends React.Component {
   render() {
-    return <LoginScreen />;
+    return this.props.logged ? <BrowserScreen /> : <LoginScreen />;
   }
 }
 
 const mapStateToProps = state => ({
-  logged: state.account.logged
+  logged: state.account.loggedIn
 });
 
 export default connect(mapStateToProps)(Router);

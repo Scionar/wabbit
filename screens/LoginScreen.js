@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, TextInput, Image, Button } from 'react-native';
+import { connect } from 'react-redux';
 import { textInput, colorPumpkin, colorFire } from '../styles';
 import logo from '../assets/logo.png';
 
-export default class LoginScreen extends Component {
+class LoginScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,7 +16,7 @@ export default class LoginScreen extends Component {
   }
 
   onSubmit() {
-    return true;
+    this.props.logInAction();
   }
 
   render() {
@@ -78,3 +79,14 @@ const styles = StyleSheet.create({
     marginTop: 20
   }
 });
+
+const mapDispatchToProps = dispatch => ({
+  logInAction: () => {
+    dispatch({ type: 'LOG_IN' });
+  }
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(LoginScreen);

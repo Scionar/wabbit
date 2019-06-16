@@ -6,6 +6,8 @@ const accountReducerInitialState = {
 
 const accountReducer = (state = accountReducerInitialState, action) => {
   switch (action.type) {
+    case 'LOG_IN':
+      return { ...state, loggedIn: true };
     default:
       return state;
   }
